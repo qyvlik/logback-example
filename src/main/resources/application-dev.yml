@@ -1,0 +1,6 @@
+
+logging:
+  level:
+    io:
+      github:
+        qyvlik: debug
