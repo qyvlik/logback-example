@@ -2,4 +2,6 @@
 spring:
   profiles:
     active: prod
+logging:
+  path: /tmp/logback-example
 

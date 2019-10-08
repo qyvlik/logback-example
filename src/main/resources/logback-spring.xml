@@ -5,6 +5,8 @@
 
     <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
 
+    <springProperty scope="context" name="logging.path"  source="logging.path"/>
+
     <!-- 输出到控制台 ConsoleAppender -->
     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
@@ -28,10 +30,10 @@
 
     <appender name="rollingFileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <!-- 输出最新日志的位置 -->
-        <file>logback-example.log</file>
+        <file>${logging.path}/logback-example.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
             <!-- rollover daily -->
-            <fileNamePattern>logback-example-%d{yyyy-MM-dd}.%i.gz</fileNamePattern>
+            <fileNamePattern>${logging.path}/logback-example-%d{yyyy-MM-dd}.%i.gz</fileNamePattern>
             <!-- each file should be at most 100MB, keep 60 days worth of history, but at most 20GB -->
             <maxFileSize>100MB</maxFileSize>
             <!--<maxHistory>60</maxHistory>-->
